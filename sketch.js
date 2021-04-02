@@ -11,7 +11,7 @@ var plinkos = [];
 
 function setup() {
   createCanvas(480,800);
-  createSprite(400, 200, 50, 50);
+  createSprite(400, 100, 50, 50);
  
   myengine = Engine.create();
   myworld = myengine.world;
@@ -34,10 +34,24 @@ function draw() {
   Engine.update(myengine)
   background(255,255,255);  
 
-  if(frameCount%60===0){
+  if(frameCount%90===0){
     particles.push(new Particle(random(width/2-10,width/2+10),10,10));
     
   } 
+
+   for(var i = 0; i<particles.length; i++){
+      particles[i].display()
+   }
+
+
+   for(var j = 40; j <= width; j=j+50){
+      plinkos.push(new Plinko(j,75));
+   }
+
+   for(var j = 15; j <= width-10; j=j+50){
+    plinkos.push(new Plinko(j,175));
+ }
+
 
   ground.display()
   division1.display()
