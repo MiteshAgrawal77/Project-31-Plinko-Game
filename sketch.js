@@ -11,12 +11,10 @@ var plinkos = [];
 
 function setup() {
   createCanvas(480,800);
-  createSprite(400, 100, 50, 50);
+ // createSprite(400, 100, 50, 50);
  
   myengine = Engine.create();
   myworld = myengine.world;
-  
-   
 
   ground  = new Ground(249,690,495,8)
 
@@ -40,17 +38,30 @@ function draw() {
   } 
 
    for(var i = 0; i<particles.length; i++){
+     // particles.push(new Particle(i,80,20))
       particles[i].display()
    }
 
 
    for(var j = 40; j <= width; j=j+50){
-      plinkos.push(new Plinko(j,75));
+      plinkos.push(new Plinko(j,75,10));
    }
 
    for(var j = 15; j <= width-10; j=j+50){
-    plinkos.push(new Plinko(j,175));
+    plinkos.push(new Plinko(j,175,10));
  }
+
+    for(var j = 40; j <= width; j=j+60){
+      plinkos.push(new Plinko(j,275,10));
+  }
+
+    for(var j = 15; j <= width-10; j=j+60){
+      plinkos.push(new Plinko(j,375,10));
+  }
+
+ for(var i = 0; i<plinkos.length; i++){
+  plinkos[i].display()
+}
 
 
   ground.display()
@@ -62,5 +73,5 @@ function draw() {
   division6.display()
   division7.display()
 
-  drawSprites();
+ // drawSprites();
 }

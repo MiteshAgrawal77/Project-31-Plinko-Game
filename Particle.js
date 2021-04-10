@@ -3,6 +3,7 @@ class Particle {
     constructor(x,y,r){
         var options = {
             restitutions:0.4,
+           // isStatic: true,
         }
         this.r=r;
 
@@ -14,15 +15,15 @@ class Particle {
     display(){
 
         var pos = this.body.position;
-        var angle = this.body.angle;
+      //  var angle = this.body.angle;
 
         push()
-        translate[pos.x,pos.y];
-        rotate[angle];
+       // translate[pos.x,pos.y];
+       // rotate[angle];
         noStroke();
         fill(this.color)
         ellipseMode(RADIUS);
-        ellipse(0,0,this.r,this.r);
+        ellipse(pos.x,pos.y,this.r,this.r);
         pop()
     }
 
